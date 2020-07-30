@@ -8,18 +8,18 @@ class Folderify < Formula
   license "MIT"
 
   depends_on "imagemagick"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     virtualenv_install_with_resources
   end
 
   test do
-    # Downloads a test icon
-    system "curl", "https://raw.githubusercontent.com/lgarron/folderify/main/examples/src/apple.png",
-           "-o", "apple.png"
+    # Copies an example icon
+    cp("#{libexec}/lib/python3.8/site-packages/folderify/GenericFolderIcon.Yosemite.iconset/icon_16x16.png",
+    "icon.png")
     # Foldify applies the test icon to a folder
-    system "folderify", "apple.png", testpath.to_s
+    system "folderify", "icon.png", testpath.to_s
     # Tests for the presence of the file icon
     assert_predicate testpath / "Icon\r", :exist?
   end
