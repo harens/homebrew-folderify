@@ -18,7 +18,7 @@ class Folderify < Formula
     # Copies an example icon
     cp("#{libexec}/lib/python3.8/site-packages/folderify/GenericFolderIcon.Yosemite.iconset/icon_16x16.png",
     "icon.png")
-    # Foldify applies the test icon to a folder
+    # folderify applies the test icon to a folder
     system "folderify", "icon.png", testpath.to_s
     # Tests for the presence of the file icon
     assert_predicate testpath / "Icon\r", :exist?
