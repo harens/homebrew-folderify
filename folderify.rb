@@ -6,6 +6,8 @@ class Folderify < Formula
   url "https://github.com/lgarron/folderify/archive/v1.2.3.tar.gz"
   sha256 "3a9eaadf1f2a9dde3ab58bb07ea5b1a5f5a182f62fe19e2cd79a88f6abe00f7e"
   license "MIT"
+  # Default branch is "main" not "master"
+  head "https://github.com/lgarron/folderify.git", branch: "main"
 
   depends_on "imagemagick"
   depends_on "python@3.8"
